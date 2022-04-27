@@ -9,15 +9,17 @@ const UploadProduct = () => {
     event.preventDefault();
     const name = event.target.name.value;
     const price = event.target.price.value;
-
-    console.log(name,price);
+    const img=event.target.img.value;
+    // console.log(name,price,img);
     const url = "http://localhost:5000/uploadPd";
     fetch(url, {
       method: "POST",
       body: JSON.stringify({
         name,
         price,
+        img,
       }),
+     
       headers: {
         "authorization": `${user.email} ${localStorage.getItem("accessToken")}`,
         "Content-type": "application/json",
@@ -49,6 +51,15 @@ const UploadProduct = () => {
               type="number"
               name="price"
               placeholder="Price"
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Image</Form.Label>
+            <Form.Control
+              type="text"
+              name="img"
+              placeholder="img-url"
               required
             />
           </Form.Group>

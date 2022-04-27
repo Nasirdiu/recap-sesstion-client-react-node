@@ -15,13 +15,14 @@ const Product = () => {
   }, []);
 
   const handleOrder = (product) => {
-    const { name, price } = product;
+    const { name, price, img } = product;
     //   console.log(product,user.email);
     fetch("http://localhost:5000/addOrder", {
       method: "POST",
       body: JSON.stringify({
         name,
         price,
+        img,
         email: user.email,
       }),
       headers: {
@@ -34,18 +35,18 @@ const Product = () => {
       });
   };
   return (
-    <div>
+    <div className="container">
       <h1>Product :-{products.length}</h1>
 
       <div className="row">
         {products.map((product) => (
-          <div className="col-4" key={product._id}>
+          <div className="col-4 mb-3" key={product._id}>
             <Card style={{ width: "18rem" }}>
-              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Img variant="top" src={product.img} />
               <Card.Body>
                 <Card.Title>Name:{product.name}</Card.Title>
                 <Card.Text>Price:{product.price}</Card.Text>
-                <Button onClick={() => handleOrder(product)} variant="primary">
+                <Button className="w-50 mx-auto d-block" onClick={() => handleOrder(product)} variant="primary">
                   Order Now
                 </Button>
               </Card.Body>
