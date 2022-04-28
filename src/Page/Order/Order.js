@@ -16,12 +16,16 @@ const Order = () => {
       .then((res) => res.json())
       .then((data) => setOrderList(data));
   }, [user.email]);
+
   return (
     <div>
       <h2>Total Orders : {orderList.length}</h2>
       <ol>
         {orderList.map((order) => (
-          <li>{order.name}</li>
+          <div>
+            <li>{order.name}</li>
+            <img src={order.img} width="100px" alt="" />
+          </div>
         ))}
       </ol>
     </div>

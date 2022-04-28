@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
@@ -33,6 +33,9 @@ const Header = () => {
             </Nav.Link>
           </Nav>
           <Nav>
+            <Nav.Link as={Link} to="/manage">
+              Manage
+            </Nav.Link>
             <Nav.Link as={Link} to="/login">
               Login
             </Nav.Link>

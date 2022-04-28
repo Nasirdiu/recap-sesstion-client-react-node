@@ -8,6 +8,7 @@ import UploadProduct from "./Page/UploadProduct/UploadProduct";
 import Order from "./Page/Order/Order";
 import Login from "./Page/Login/Login";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import Manage from "./Page/Manage/Manage";
 function App() {
   return (
     <div>
@@ -34,6 +35,7 @@ function App() {
           }
         ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/manage" element={<Manage></Manage>}></Route>
       </Routes>
     </div>
   );
